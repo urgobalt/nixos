@@ -22,7 +22,7 @@
       sessionVariables = {
         XDG_CONFIG_HOME = "$HOME/.config";
         SSH_HOME = "$HOME/.ssh";
-        PF_INFO = "ascii title shell editor host uptime memory palette";
+        PF_INFO = "ascii shell editor host uptime memory palette";
       };
       # Packages managed by home manager
       packages = with pkgs; [
