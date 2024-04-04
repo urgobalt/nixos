@@ -1,7 +1,7 @@
 {...}: {
     programs.starship = {
       enable = true;
-      enableZshIntegration = false;
+      enableFishIntegration = true;
       settings = {
         format = "$username$directory$character";
 	right_format = "$time";

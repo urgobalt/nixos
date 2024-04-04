@@ -20,11 +20,9 @@
 
     # System management packages
     neovim
-    zsh
 
     # Privacy and security
     pass-wayland
-    gnupg
     gpg-tui
   ];
 
@@ -33,12 +31,22 @@
     BROWSER = "wslview";
   };
 
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryFlavor = "curses";
+    enableSSHSupport = false;
+  };
+
   security.sudo = {
     wheelNeedsPassword = true;
     extraConfig = ''
       Defaults env_keep += "EDITOR"
       Defaults env_keep += "XDG_CONFIG_HOME"
       Defaults env_keep += "SSH_HOME"
+      Defaults env_keep += "XDG_RUNTIME_DIR"
+
+      Defaults insults
     '';
   };
 

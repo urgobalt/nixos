@@ -4,6 +4,7 @@
     supportedLocales = ["en_US.UTF-8/UTF-8"];
     extraLocaleSettings = {
       LANGUAGE = "en_US.UTF-8";
+      LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
     };
   };
 

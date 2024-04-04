@@ -6,12 +6,15 @@
 
   # User
   users.users.urgobalt = {
+    uid = 1000;
     isNormalUser = true;
     home = "/home/urgobalt";
     description = "Ludvig Källqvist Nygren";
     extraGroups = ["wheel" "networkmanager"];
-    shell = "${pkgs.zsh}/bin/zsh";
+    shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
 
   # Home
   home-manager.users.urgobalt = {pkgs, config, ...}: {
@@ -19,18 +22,24 @@
       sessionVariables = {
         XDG_CONFIG_HOME = "$HOME/.config";
         SSH_HOME = "$HOME/.ssh";
+        PF_INFO = "ascii title shell editor host uptime memory palette";
       };
       # Packages managed by home manager
       packages = with pkgs; [
         # System
 	eza
 	pfetch-rs
+        fish
+        trashy
 
         # Source control
         gh
 
         # Development
         nodejs_21
+
+        # Utils
+        speedtest-rs
       ];
 
       # Shell
@@ -41,8 +50,8 @@
 
     imports = [
       ./git.nix
-      ./programs/zsh.nix
       ./programs/starship.nix
+      ./programs/fish.nix
     ];
   };
 }
