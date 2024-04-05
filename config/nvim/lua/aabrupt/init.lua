@@ -1,0 +1,5 @@
+vim.g.mapleader = ' '
+require 'aabrupt.settings'
+require 'aabrupt.autocmd'
+require 'aabrupt.keymaps'
+require 'aabrupt.lazy'
