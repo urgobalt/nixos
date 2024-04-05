@@ -35,8 +35,18 @@
         # Source control
         gh
 
-        # Development
+        # NodeJS
         nodejs_21
+
+        # Lua
+        luajitPackages.luarocks
+
+        # Ocaml
+        ocaml
+        opam
+
+        # Rust
+        rustup
 
         # Utils
         speedtest-rs
@@ -52,6 +62,7 @@
       ./git.nix
       ./programs/starship.nix
       ./programs/fish.nix
+      ./config/export.nix
     ];
   };
 }
