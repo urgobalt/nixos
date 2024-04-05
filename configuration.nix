@@ -20,6 +20,7 @@
 
     # System management packages
     neovim
+    tldr
 
     # Privacy and security
     pass-wayland
