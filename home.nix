@@ -40,6 +40,7 @@
 
         # Lua
         luajitPackages.luarocks
+        lua-language-server
 
         # Ocaml
         ocaml
