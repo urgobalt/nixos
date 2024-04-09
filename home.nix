@@ -27,8 +27,8 @@
       # Packages managed by home manager
       packages = with pkgs; [
         # System
-	eza
-	pfetch-rs
+        eza
+        pfetch-rs
         fish
         trashy
 
@@ -37,6 +37,7 @@
 
         # NodeJS
         nodejs_21
+        yarn # Required for markdown-preview
 
         # Lua
         luajitPackages.luarocks

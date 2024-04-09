@@ -10,6 +10,8 @@
       update = "sudo nixos-rebuild switch";
       clear = "clear && pfetch";
       speedtest = "speedtest-rs";
+      printpath = "printf %s\\n $PATH | column";
+      systempath = "printf %s\\n $PATH | grep -v /mnt | column";
     };
 
     shellInit = ''
@@ -27,6 +29,7 @@ fish_config theme choose Nord
     '';
 
     interactiveShellInit = ''
+eval (opam env)
 set fish_greeting # Disable greeting
 
 pfetch

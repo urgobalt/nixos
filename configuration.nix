@@ -51,6 +51,8 @@
     '';
   };
 
+  networking.hostName = "nix-wsl";
+
   # Version of NixOS when installed
   system.stateVersion = "23.11"; # Did you read the comment?
 }
