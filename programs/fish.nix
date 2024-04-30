@@ -22,7 +22,7 @@ function storePathForWindowsTerminal --on-variable PWD
 end
 
 function take
-  mkdir "$1" -p && cd "$1"
+  mkdir -p $argv && cd $argv
 end
 
 fish_config theme choose Nord

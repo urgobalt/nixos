@@ -22,6 +22,8 @@
       sessionVariables = {
         XDG_CONFIG_HOME = "$HOME/.config";
         SSH_HOME = "$HOME/.ssh";
+        MANPAGER = "nvim +Man!";
+        MANWIDTH = 999;
         PF_INFO = "ascii shell editor host uptime memory palette";
       };
       # Packages managed by home manager
