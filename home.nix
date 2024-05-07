@@ -33,6 +33,7 @@
         pfetch-rs
         fish
         trashy
+        bat
 
         # Source control
         gh
@@ -54,9 +55,10 @@
 
         # Utils
         speedtest-rs
-      ];
 
-      # Shell
+        # Improved reading and writing
+        toipe
+      ];
 
       # Version of the originally installed home-manager
       stateVersion = "23.11";
