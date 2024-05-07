@@ -34,6 +34,7 @@
         fish
         trashy
         bat
+        unixtools.xxd
 
         # Source control
         gh
