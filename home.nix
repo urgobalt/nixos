@@ -16,8 +16,20 @@
 
   programs.fish.enable = true;
 
+
+
   # Home
   home-manager.users.urgobalt = {pkgs, config, ...}: {
+    nixpkgs = {
+      config = {
+        allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+          "obsidian"
+        ];
+        allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [
+          "electron"
+        ];
+      };
+    };
     home = {
       sessionVariables = {
         XDG_CONFIG_HOME = "$HOME/.config";
@@ -26,6 +38,7 @@
         MANWIDTH = 999;
         PF_INFO = "ascii shell editor host uptime memory palette";
       };
+
       # Packages managed by home manager
       packages = with pkgs; [
         # System
@@ -46,6 +59,7 @@
         # Lua
         luajitPackages.luarocks
         lua-language-server
+        stylua
 
         # Ocaml
         ocaml
@@ -56,9 +70,11 @@
 
         # Utils
         speedtest-rs
+        ripgrep
 
-        # Improved reading and writing
+        # Hacking the brain
         toipe
+        obsidian
       ];
 
       # Version of the originally installed home-manager
