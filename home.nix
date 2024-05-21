@@ -16,8 +16,6 @@
 
   programs.fish.enable = true;
 
-
-
   # Home
   home-manager.users.urgobalt = {pkgs, config, ...}: {
     nixpkgs = {
@@ -27,6 +25,7 @@
         ];
         allowInsecurePredicate = pkg: builtins.elem (lib.getName pkg) [
           "electron"
+          "nix"
         ];
       };
     };
@@ -52,21 +51,23 @@
         # Source control
         gh
 
-        # NodeJS
-        nodejs_21
-        yarn # Required for markdown-preview
+        # Toolchain installers
+        rustup
 
-        # Lua
-        luajitPackages.luarocks
-        lua-language-server
-        stylua
-
-        # Ocaml
-        ocaml
+        # Package managers
         opam
 
-        # Rust
-        rustup
+        # Programming languages
+        nodejs_21
+        go
+        ocaml
+
+        # Lsp
+        lua-language-server
+        rnix-lsp
+
+        # Formatters
+        stylua
 
         # Utils
         speedtest-rs

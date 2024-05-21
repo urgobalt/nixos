@@ -17,6 +17,7 @@
     gccgo13
     gnumake
     wslu
+    xdg-utils
 
     # System management packages
     neovim
