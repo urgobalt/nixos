@@ -14,7 +14,7 @@
     # System function packages
     wl-clipboard
     git
-    gccgo13
+    gcc
     gnumake
     wslu
     xdg-utils

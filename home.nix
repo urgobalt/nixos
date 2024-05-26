@@ -42,17 +42,18 @@
       packages = with pkgs; [
         # System
         eza
-        pfetch-rs
         fish
         trashy
         bat
         unixtools.xxd
+        fastfetch
 
         # Source control
         gh
 
-        # Toolchain installers
+        # Rust build systems
         rustup
+        cargo-info
 
         # Package managers
         opam
