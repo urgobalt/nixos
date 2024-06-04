@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   programs.fish = {
     enable = true;
 
@@ -15,25 +15,37 @@
     };
 
     shellInit = ''
-fish_vi_key_bindings
-function storePathForWindowsTerminal --on-variable PWD
-  if test -n "$WT_SESSION"
-    printf "\e]9;9;%s\e\\" (wslpath -w "$PWD")
-  end
-end
+      fish_vi_key_bindings
+      function storePathForWindowsTerminal --on-variable PWD
+        if test -n "$WT_SESSION"
+          printf "\e]9;9;%s\e\\" (wslpath -w "$PWD")
+        end
+      end
 
-function take
-  mkdir -p $argv && cd $argv
-end
+      function take
+        mkdir -p $argv && cd $argv
+      end
 
-fish_config theme choose Nord
+      function custom_tab_completion
+          if test (commandline -c) -eq 0
+              # Do nothing if the command line is empty
+              return 0
+          else
+              # Perform the default tab completion
+              commandline -f complete
+          end
+      end
+
+      bind \t custom_tab_completion
+
+      fish_config theme choose Nord
     '';
 
     interactiveShellInit = ''
-eval (opam env)
-set fish_greeting # Disable greeting
+      eval (opam env)
+      set fish_greeting # Disable greeting
 
-fastfetch
+      fastfetch
     '';
   };
 }

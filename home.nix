@@ -1,4 +1,7 @@
 { config, lib, pkgs, ... }:
+let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
 {
   imports = [
     <home-manager/nixos>
@@ -10,14 +13,14 @@
     isNormalUser = true;
     home = "/home/urgobalt";
     description = "Ludvig Källqvist Nygren";
-    extraGroups = ["wheel" "networkmanager"];
+    extraGroups = [ "wheel" "networkmanager" ];
     shell = pkgs.fish;
   };
 
   programs.fish.enable = true;
 
   # Home
-  home-manager.users.urgobalt = {pkgs, config, ...}: {
+  home-manager.users.urgobalt = { pkgs, config, ... }: {
     nixpkgs = {
       config = {
         allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -37,6 +40,7 @@
         MANWIDTH = 999;
         PF_INFO = "ascii shell editor host uptime memory palette";
       };
+
 
       # Packages managed by home manager
       packages = with pkgs; [
@@ -62,6 +66,11 @@
         nodejs_21
         go
         ocaml
+
+        # Gleam
+        unstable.gleam
+        erlang
+        rebar3
 
         # Lsp
         lua-language-server
