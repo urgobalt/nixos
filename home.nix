@@ -63,7 +63,7 @@ in
         opam
 
         # Programming languages
-        nodejs_21
+        nodejs_22
         go
         ocaml
 
