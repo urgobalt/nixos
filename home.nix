@@ -74,7 +74,7 @@ in
 
         # Lsp
         lua-language-server
-        rnix-lsp
+        nil
 
         # Formatters
         stylua
