@@ -61,6 +61,7 @@ in
 
         # Package managers
         opam
+        yarn
 
         # Programming languages
         nodejs_22
