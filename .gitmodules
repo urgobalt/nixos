@@ -2,3 +2,4 @@
 	path = config/nvim
 	url = git@github.com:aabrupt/nvim.git
 	branch = main
+	update = rebase
