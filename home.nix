@@ -51,6 +51,7 @@ in
         bat
         unixtools.xxd
         fastfetch
+        inotify-tools
 
         # Source control
         gh
@@ -58,6 +59,7 @@ in
         # Rust build systems
         rustup
         cargo-info
+        tailwindcss
 
         # Package managers
         opam
@@ -68,14 +70,20 @@ in
         go
         ocaml
 
-        # Gleam
+        # Erlang
         unstable.gleam
         erlang
         rebar3
+        elixir
 
         # Lsp
         lua-language-server
         nil
+        elixir-ls
+        tailwindcss-language-server
+
+        # Linters
+        eslint_d
 
         # Formatters
         stylua
@@ -84,9 +92,13 @@ in
         speedtest-rs
         ripgrep
 
+        # Databases
+        sqlite
+
         # Hacking the brain
         toipe
         obsidian
+        neomutt
       ];
 
       # Version of the originally installed home-manager
@@ -95,8 +107,6 @@ in
 
     imports = [
       ./git.nix
-      ./programs/starship.nix
-      ./programs/fish.nix
       ./config/export.nix
     ];
   };

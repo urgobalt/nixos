@@ -26,6 +26,13 @@
     # Privacy and security
     pass-wayland
     gpg-tui
+
+    # Spellchecking
+    aspell
+    aspellDicts.sv
+    aspellDicts.en
+    aspellDicts.en-computers
+    aspellDicts.en-science
   ];
 
   environment.variables = {
