@@ -110,4 +110,6 @@ in
       ./config/export.nix
     ];
   };
+
+  home-manager.backupFileExtension = "bkp";
 }
