@@ -18,6 +18,7 @@
     gnumake
     wslu
     xdg-utils
+    fd
 
     # System management packages
     neovim
