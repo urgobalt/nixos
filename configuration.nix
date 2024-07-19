@@ -9,6 +9,9 @@
   wsl.enable = true;
   wsl.defaultUser = "urgobalt";
 
+  # Nix config
+  nix.settings.experimental-features = ["nix-command" "flakes"];
+
   # System packages
   environment.systemPackages = with pkgs; [
     # System function packages
