@@ -1,13 +1,25 @@
 { pkgs, ... }:
 {
   imports = [
-    <nixos-wsl/modules>
     ./i18n.nix
-    ./home.nix
   ];
+
+  home-manager.backupFileExtension = "bkp";
+
+  # User
+  users.users.urgobalt = {
+    uid = 1000;
+    isNormalUser = true;
+    home = "/home/urgobalt";
+    description = "Ludvig Källqvist Nygren";
+    extraGroups = [ "wheel" "networkmanager" ];
+    shell = pkgs.fish;
+  };
 
   wsl.enable = true;
   wsl.defaultUser = "urgobalt";
+
+  programs.fish.enable = true;
 
   # Nix config
   nix.settings.experimental-features = ["nix-command" "flakes"];

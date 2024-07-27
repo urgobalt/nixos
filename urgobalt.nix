@@ -1,26 +1,5 @@
-{ lib, pkgs, ... }:
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
+{ pkgs, lib, ... }:
 {
-  imports = [
-    <home-manager/nixos>
-  ];
-
-  # User
-  users.users.urgobalt = {
-    uid = 1000;
-    isNormalUser = true;
-    home = "/home/urgobalt";
-    description = "Ludvig Källqvist Nygren";
-    extraGroups = [ "wheel" "networkmanager" ];
-    shell = pkgs.fish;
-  };
-
-  programs.fish.enable = true;
-
-  # Home
-  home-manager.users.urgobalt = { pkgs, config, ... }: {
     nixpkgs = {
       config = {
         allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
@@ -110,7 +89,4 @@ in
       ./git.nix
       ./config/export.nix
     ];
-  };
-
-  home-manager.backupFileExtension = "bkp";
-}
+  }
