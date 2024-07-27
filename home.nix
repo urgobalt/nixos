@@ -52,6 +52,7 @@ in
         unixtools.xxd
         fastfetch
         inotify-tools
+        unstable.neovim
 
         # Source control
         gh

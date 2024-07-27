@@ -22,9 +22,10 @@
     wslu
     xdg-utils
     fd
+    wsl-open
 
     # System management packages
-    neovim
+    vim
     tldr
 
     # Privacy and security
