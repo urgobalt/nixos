@@ -3,6 +3,7 @@
   user,
   fullName,
   config,
+  ssh,
   ...
 }: {
   imports = [
@@ -20,7 +21,14 @@
     description = fullName;
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.fish;
+    openssh.authorizedKeys.keys = [
+      ssh.wsl
+    ];
   };
+
+  users.users.root.openssh.authorizedKeys.keys = [
+    ssh.wsl
+  ];
 
   programs.fish.enable = true;
 
@@ -39,11 +47,6 @@
     enableSSHSupport = false;
   };
 
-  services.openssh = {
-    enable = true;
-    ports = [22];
-  };
-
   security.sudo = {
     wheelNeedsPassword = true;
     extraConfig = ''
@@ -54,6 +57,11 @@
 
       Defaults insults
     '';
+  };
+
+  services.openssh = {
+    enable = true;
+    ports = [22];
   };
 
   # Version of NixOS when installed

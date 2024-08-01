@@ -10,7 +10,7 @@
 
   console = {
     font = "Lat2-Terminus16";
-    keyMap = "se";
+    keyMap = "sv-latin1";
   };
 
   fonts = {

@@ -74,13 +74,18 @@
 
       home-manager.users.${user} = import ./${user};
     };
+    ssh = {
+      wsl = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSS+sRSnl0fuUJvQSuXjDSuxoLbAeY8MoApbfwGvVGf lukecastellan165@gmail.com";
+      server = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFAqiX2xokcBhY+BDl4yfSqI/M6mOOSgODyINQ2mi7f root@server";
+    };
+    specialArgs = {inherit pkgs user fullName ssh;};
   in {
     # Secrix
     apps.x86_64-linux.secrix = secrix.secrix self;
 
     # Hosts
     nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit pkgs user fullName;};
+      specialArgs = specialArgs;
       system = system;
       modules = [
         {
@@ -89,6 +94,8 @@
 
           wsl.enable = true;
           wsl.defaultUser = user;
+
+          secrix.hostIdentityFile = "/home/${user}/.ssh/id_ed25519";
         }
         ./system
         nixos-wsl.nixosModules.wsl
@@ -111,10 +118,12 @@
     #   ];
     # };
     nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit pkgs user;};
+      specialArgs = specialArgs;
       modules = [
         ./hosts/pi.nix
-        ./server.nix
+        ./system
+        ./system/docker.nix
+        secrix.nixosModules.secrix
       ];
     };
   };

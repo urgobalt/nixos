@@ -6,9 +6,11 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     ../system/docker.nix
+    ../network.nix
   ];
 
   networking.hostName = "pi";
+  networking.useDHCP = lib.mkDefault true;
 
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
@@ -25,16 +27,15 @@
 
   swapDevices = [];
 
-  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
-  # (the default) this is the recommended approach. When using systemd-networkd it's
-  # still possible to use this option, but it's recommended to use it in conjunction
-  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.end0.useDHCP = lib.mkDefault true;
-  # networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
-
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [22];
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [22];
+  };
+
+  services.openssh = {
+    enable = true;
+    ports = [22];
+  };
 }
