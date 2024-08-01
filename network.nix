@@ -2,6 +2,7 @@
   networking.wireless.enable = true;
   networking.networkmanager.enable = false;
 
+  networking.wireless.userControlled.enable = true;
   networking.wireless.environmentFile = config.secrix.system.secrets.wifi-env.decrypted.path;
   networking.wireless.networks = {
     "Spökhuset" = {
