@@ -6,5 +6,5 @@
 
   secrix.system.secrets.user-password.encrypted.file = ./user-password;
   # secrix.system.secrets.gpg.encrypted.file = ./gpg;
-  secrix.services.wpa_supplicant.secrets.wifi-env.encrypted.file = ./wifi-env;
+  secrix.system.secrets.wifi-env.encrypted.file = ./wifi-env;
 }
