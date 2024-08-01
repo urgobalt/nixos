@@ -9,6 +9,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Partitions as code
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # Home
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
@@ -104,15 +110,12 @@
     #     home-manager-config
     #   ];
     # };
-    # nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
-    #   specialArgs = {inherit pkgs user;};
-    #   modules = [
-    #     {
-    #       networking.hostName = "pi";
-    #     }
-    #     ./hosts/pi.nix
-    #     ./server.nix
-    #   ];
-    # };
+    nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
+      specialArgs = {inherit pkgs user;};
+      modules = [
+        ./hosts/pi.nix
+        ./server.nix
+      ];
+    };
   };
 }

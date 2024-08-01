@@ -57,4 +57,11 @@ with pkgs; [
   toipe
   obsidian
   neomutt
+
+  # Spellchecking
+  aspell
+  aspellDicts.sv
+  aspellDicts.en
+  aspellDicts.en-computers
+  aspellDicts.en-science
 ]

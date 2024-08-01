@@ -10,14 +10,13 @@
     ../secrets
   ];
 
-  home-manager.backupFileExtension = "bkp";
-
   # User
   users.users.${user} = {
     uid = 1000;
     isNormalUser = true;
     home = "/home/${user}";
-    passwordFile = config.secrix.system.secrets.user-password.decrypted.path;
+    createHome = true;
+    hashedPasswordFile = config.secrix.system.secrets.user-password.decrypted.path;
     description = fullName;
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.fish;
