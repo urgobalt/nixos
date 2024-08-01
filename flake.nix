@@ -118,7 +118,8 @@
     #   ];
     # };
     nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
-      specialArgs = specialArgs;
+      specialArgs = {inherit fullName user ssh;};
+      system = "aarch64-linux";
       modules = [
         ./hosts/pi.nix
         ./system

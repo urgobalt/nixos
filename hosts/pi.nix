@@ -1,6 +1,7 @@
 {
   lib,
   modulesPath,
+  pkgs,
   ...
 }: {
   imports = [
@@ -32,10 +33,5 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [22];
-  };
-
-  services.openssh = {
-    enable = true;
-    ports = [22];
   };
 }
