@@ -67,7 +67,7 @@ in {
 
   networking.nftables.enable = true;
   networking.firewall = {
-    enable = true;
+    enable = false;
     allowedTCPPorts = [22];
   };
 
