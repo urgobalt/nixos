@@ -65,6 +65,11 @@ in {
     ports = [22];
   };
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [22];
+  };
+
   # Version of NixOS when installed
   system.stateVersion = "23.11"; # Did you read the comment?
 }

@@ -116,7 +116,7 @@
       modules = [
         ./hosts/pi.nix
         ./system
-        ./system/docker.nix
+        ./system/virtualization.nix
         agenix.nixosModules.default
       ];
     };

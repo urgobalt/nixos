@@ -1,12 +1,11 @@
 {
   lib,
   modulesPath,
-  pkgs,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../system/docker.nix
+    ../system/virtualization.nix
     ../network.nix
   ];
 
@@ -29,9 +28,4 @@
   swapDevices = [];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
-
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [22];
-  };
 }
