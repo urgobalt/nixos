@@ -67,8 +67,9 @@ in {
 
   networking.nftables.enable = true;
   networking.firewall = {
-    enable = false;
+    enable = true;
     allowedTCPPorts = [22];
+    allowedUDPPorts = [];
   };
 
   # Version of NixOS when installed
