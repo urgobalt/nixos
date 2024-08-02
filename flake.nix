@@ -26,8 +26,8 @@
     };
 
     # Secrets
-    secrix = {
-      url = "github:Platonic-Systems/secrix";
+    agenix = {
+      url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -37,7 +37,7 @@
     home-manager,
     nixpkgs-unstable,
     nvim-config,
-    secrix,
+    agenix,
     self,
     ...
   }: let
@@ -74,15 +74,8 @@
 
       home-manager.users.${user} = import ./${user};
     };
-    ssh = {
-      wsl = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOSS+sRSnl0fuUJvQSuXjDSuxoLbAeY8MoApbfwGvVGf lukecastellan165@gmail.com";
-      server = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGFAqiX2xokcBhY+BDl4yfSqI/M6mOOSgODyINQ2mi7f root@server";
-    };
-    specialArgs = {inherit pkgs user fullName ssh;};
+    specialArgs = {inherit pkgs user fullName;};
   in {
-    # Secrix
-    apps.x86_64-linux.secrix = secrix.secrix self;
-
     # Hosts
     nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
       specialArgs = specialArgs;
@@ -95,11 +88,11 @@
           wsl.enable = true;
           wsl.defaultUser = user;
 
-          secrix.hostIdentityFile = "/home/${user}/.ssh/id_ed25519";
+          environment.systemPackages = [agenix.packages.x86_64-linux.default];
         }
         ./system
         nixos-wsl.nixosModules.wsl
-        secrix.nixosModules.secrix
+        agenix.nixosModules.default
         home-manager.nixosModules.home-manager
         home-manager-config
       ];
@@ -118,13 +111,13 @@
     #   ];
     # };
     nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit fullName user ssh;};
+      specialArgs = {inherit fullName user;};
       system = "aarch64-linux";
       modules = [
         ./hosts/pi.nix
         ./system
         ./system/docker.nix
-        secrix.nixosModules.secrix
+        agenix.nixosModules.default
       ];
     };
   };

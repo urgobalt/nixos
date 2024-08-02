@@ -1,10 +1,6 @@
-{ssh, ...}: {
-  secrix.defaultEncryptKeys = {
-    wsl = [ssh.wsl];
-    server = [ssh.server];
-  };
+{user, ...}: {
+  age.identityPaths = ["/etc/ssh/ssh_host_ed25519_key" "/home/${user}/.ssh/id_ed25519"];
 
-  secrix.system.secrets.user-password.encrypted.file = ./user-password;
-  # secrix.system.secrets.gpg.encrypted.file = ./gpg;
-  secrix.services.wpa_supplicant.secrets.wifi-env.encrypted.file = ./wifi-env;
+  age.secrets.user-password.file = ./user-password.age;
+  age.secrets.wifi-env.file = ./wifi-env.age;
 }

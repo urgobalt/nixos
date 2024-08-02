@@ -3,9 +3,10 @@
   user,
   fullName,
   config,
-  ssh,
   ...
-}: {
+}: let
+  ssh = import ../ssh.nix;
+in {
   imports = [
     ./locale.nix
     ../secrets
@@ -17,7 +18,7 @@
     isNormalUser = true;
     home = "/home/${user}";
     createHome = true;
-    hashedPasswordFile = config.secrix.system.secrets.user-password.decrypted.path;
+    hashedPasswordFile = config.age.secrets.user-password.path;
     description = fullName;
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.fish;

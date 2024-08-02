@@ -25,10 +25,6 @@ alias r := rollback
 rollback:
   sudo nixos-rebuild switch --rollback
 
-alias s := secrix
-@secrix *args="":
-  nix run .#secrix -- "$@"
-
 alias m := metadata
 metadata:
   nix flake metadata
