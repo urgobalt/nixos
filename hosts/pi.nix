@@ -19,10 +19,11 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
   boot.extraModulePackages = [];
-  boot.loader.raspberryPi.firmwareConfig = ''
-    dtparam=act_led_trigger=none
-    dtparam=pwr_led_activelow=off
-  '';
+  # boot.loader.raspberryPi.firmwareConfig = ''
+  #   dtparam=act_led_trigger=none
+  #   dtparam=pwr_led_trigger=none
+  #   dtparam=pwr_led_activelow=off
+  # '';
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";

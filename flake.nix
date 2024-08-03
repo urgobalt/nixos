@@ -4,10 +4,13 @@
     # System
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+
+    # Hardware
     nixos-wsl = {
       url = "github:nix-community/nixos-wsl";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hardware.url = "github:NixOS/nixos-hardware";
 
     # Partitions as code
     disko = {
@@ -38,7 +41,7 @@
     nixpkgs-unstable,
     nvim-config,
     agenix,
-    self,
+    hardware,
     ...
   }: let
     system = "x86_64-linux";
@@ -118,6 +121,7 @@
         ./system
         ./system/virtualization.nix
         agenix.nixosModules.default
+        hardware.nixosModules.raspberry-pi-4
       ];
     };
   };
