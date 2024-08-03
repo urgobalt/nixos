@@ -71,7 +71,4 @@ in {
     allowedTCPPorts = [22];
     allowedUDPPorts = [];
   };
-
-  # Version of NixOS when installed
-  system.stateVersion = "23.11"; # Did you read the comment?
 }

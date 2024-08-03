@@ -4,6 +4,13 @@
     # System
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    systems.url = "github:nix-systems/default";
+
+    # Flakes
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+      inputs.systems.follows = "systems";
+    };
 
     # Hardware
     nixos-wsl = {
@@ -42,87 +49,102 @@
     nvim-config,
     agenix,
     hardware,
+    flake-utils,
+    self,
     ...
   }: let
-    system = "x86_64-linux";
     fullName = "Ludvig Källqvist Nygren";
     user = "urgobalt";
-    overlay-unstable = final: prev: {
-      unstable = import nixpkgs-unstable {
-        system = system;
-        config.allowUnfree = true;
+  in
+    flake-utils.lib.eachDefaultSystem (system: let
+      # ----------------------------------------------- #
+      # ------------ Configuration options ------------ #
+      # ----------------------------------------------- #
+      overlay-unstable = final: prev: {
+        unstable = import nixpkgs-unstable {
+          system = system;
+          config.allowUnfree = true;
+        };
       };
-    };
-    pkgs = import nixpkgs {
-      inherit system;
-      config = {
-        allowUnfreePredicate = pkg:
-          builtins.elem (nixpkgs.lib.getName pkg) [
-            "obsidian"
-          ];
-        allowInsecurePredicate = pkg:
-          builtins.elem (nixpkgs.lib.getName pkg) [
-            "electron"
-          ];
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfreePredicate = pkg:
+            builtins.elem (nixpkgs.lib.getName pkg) [
+              "obsidian"
+            ];
+          allowInsecurePredicate = pkg:
+            builtins.elem (nixpkgs.lib.getName pkg) [
+              "electron"
+            ];
+        };
+        overlays = [
+          overlay-unstable
+        ];
       };
-      overlays = [
-        overlay-unstable
-      ];
-    };
-    home-manager-config = {
-      home-manager.backupFileExtension = "bkp";
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.extraSpecialArgs = {inherit nvim-config fullName;};
-
-      home-manager.users.${user} = import ./${user};
-    };
-    specialArgs = {inherit pkgs user fullName;};
-  in {
-    # Hosts
-    nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
-      specialArgs = specialArgs;
-      system = system;
-      modules = [
-        {
-          networking.hostName = "wsl";
-          environment.variables.BROWSER = "wslview";
-
-          wsl.enable = true;
-          wsl.defaultUser = user;
-
-          environment.systemPackages = [agenix.packages.x86_64-linux.default];
-        }
+      specialArgs = {inherit pkgs user fullName;};
+      defaultModules = [
         ./system
-        nixos-wsl.nixosModules.wsl
         agenix.nixosModules.default
+        self.nixosModules.base
+      ];
+      homeModules = [
         home-manager.nixosModules.home-manager
-        home-manager-config
+        self.nixosModules.home
       ];
+      # ----------------------------------------------- #
+      # ---------- End Configuration options ---------- #
+      # ----------------------------------------------- #
+    in {
+      packages.nixosConfigurations = {
+        # ----------------------WSL---------------------- #
+        wsl = nixpkgs.lib.nixosSystem {
+          specialArgs = specialArgs;
+          system = system;
+          modules =
+            defaultModules
+            ++ homeModules
+            ++ [
+              {
+                networking.hostName = "wsl";
+                environment.variables.BROWSER = "wslview";
+
+                wsl.enable = true;
+                wsl.defaultUser = user;
+
+                environment.systemPackages = [agenix.packages.x86_64-linux.default];
+              }
+              nixos-wsl.nixosModules.wsl
+            ];
+        };
+        # ---------------------RPI4---------------------- #
+        pi = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit pkgs fullName user;};
+          system = system;
+          modules =
+            defaultModules
+            ++ [
+              ./hosts/pi.nix
+              ./system/virtualization.nix
+              hardware.nixosModules.raspberry-pi-4
+            ];
+        };
+      };
+    })
+    // {
+      nixosModules = {
+        home = {...}: {
+          home-manager.backupFileExtension = "bkp";
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = {inherit nvim-config fullName;};
+
+          home-manager.users.${user} = import ./${user};
+        };
+        base = {...}: {
+          # Version of NixOS when installed
+          system.stateVersion = "23.11"; # Did you read the comment?
+        };
+      };
     };
-    # nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-    #   specialArgs = {inherit pkgs user;};
-    #   modules = [
-    #     {
-    #       networking.hostName = "nixos";
-    #     }
-    #     ./system/default.nix
-    #     ./hosts/nixos.nix
-    #     secrix.nixosModules.secrix
-    #     home-manager.nixosModules.home-manager
-    #     home-manager-config
-    #   ];
-    # };
-    nixosConfigurations.pi = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit fullName user;};
-      system = "aarch64-linux";
-      modules = [
-        ./hosts/pi.nix
-        ./system
-        ./system/virtualization.nix
-        agenix.nixosModules.default
-        hardware.nixosModules.raspberry-pi-4
-      ];
-    };
-  };
 }
