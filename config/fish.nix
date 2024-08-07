@@ -3,6 +3,7 @@
     enable = true;
 
     shellAliases = {
+      nvim-dev = "NVIM_APPNAME=nvim-dev nvim";
       ls = "eza";
       ll = "ls -ahl";
       lt = "ls -hlTL 5";

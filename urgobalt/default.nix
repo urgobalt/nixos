@@ -1,6 +1,8 @@
 {
   pkgs,
+  config,
   fullName,
+  user,
   ...
 }: {
   home = {
@@ -15,7 +17,11 @@
     # Packages managed by home manager
     packages = import ./packages.nix {inherit pkgs;};
 
-    # Version of the originally installed home-manager
+    # # Create an activation block for modding neovim configuration
+    # activation.neovim-dev = config.lib.dag.entryAfter ["writeBoundary"] ''
+    #   run ln -sfn $HOME/nvim $HOME/.config/nvim-dev
+    # '';
+
     stateVersion = "23.11";
   };
 

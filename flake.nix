@@ -82,7 +82,7 @@
           overlay-unstable
         ];
       };
-      specialArgs = {inherit pkgs user fullName;};
+      specialArgs = {inherit pkgs user fullName agenix;};
       defaultModules = [
         ./system
         agenix.nixosModules.default
@@ -105,15 +105,7 @@
             defaultModules
             ++ homeModules
             ++ [
-              {
-                networking.hostName = "wsl";
-                environment.variables.BROWSER = "wslview";
-
-                wsl.enable = true;
-                wsl.defaultUser = user;
-
-                environment.systemPackages = [agenix.packages.x86_64-linux.default];
-              }
+              ./hosts/wsl.nix
               nixos-wsl.nixosModules.wsl
             ];
         };
@@ -125,7 +117,6 @@
             defaultModules
             ++ [
               ./hosts/pi.nix
-              ./system/virtualization.nix
               hardware.nixosModules.raspberry-pi-4
             ];
         };

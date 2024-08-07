@@ -7,6 +7,7 @@
     (modulesPath + "/installer/scan/not-detected.nix")
     ../system/virtualization.nix
     ../network.nix
+    ../system/firewall.nix
   ];
 
   networking.hostName = "pi";
