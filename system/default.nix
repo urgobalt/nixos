@@ -19,6 +19,7 @@ in {
     home = "/home/${user}";
     createHome = true;
     hashedPasswordFile = config.age.secrets.user-password.path;
+    defaultPassword = "root";
     description = fullName;
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.fish;
