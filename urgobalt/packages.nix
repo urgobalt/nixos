@@ -26,6 +26,7 @@ with pkgs; [
   nodejs_22
   go
   ocaml
+  unstable.zig
 
   # Erlang
   unstable.gleam
@@ -38,6 +39,7 @@ with pkgs; [
   nil
   elixir-ls
   tailwindcss-language-server
+  unstable.zls
 
   # Linters
   eslint_d
