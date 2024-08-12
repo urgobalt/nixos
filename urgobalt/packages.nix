@@ -9,6 +9,7 @@ with pkgs; [
   fastfetch
   inotify-tools
   unstable.neovim
+  tmux
 
   # Source control
   gh

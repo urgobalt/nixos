@@ -5,10 +5,8 @@ with pkgs; [
   git
   gcc
   gnumake
-  wslu
   xdg-utils
   fd
-  wsl-open
 
   # System management packages
   vim

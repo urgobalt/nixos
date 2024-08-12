@@ -5,6 +5,10 @@
     "neomutt/neomuttrc".source = ./neomuttrc;
   };
 
+  home.file = {
+    ".tmux.conf".source = ./tmux.conf;
+  };
+
   imports = [
     ./fish.nix
     ./starship.nix
