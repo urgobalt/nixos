@@ -28,7 +28,7 @@
       end
 
       function clear
-        clear
+        command clear
         if test (tput cols) -ge 80
           fastfetch
         end
