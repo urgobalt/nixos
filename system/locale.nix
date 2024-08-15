@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   i18n = {
     defaultLocale = "en_US.UTF-8";
     supportedLocales = ["en_US.UTF-8/UTF-8"];
@@ -13,20 +17,22 @@
     keyMap = "sv-latin1";
   };
 
+  time.timeZone = lib.mkDefault "Europe/Stockholm";
+
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["FantasqueSansMono"];})
+      (nerdfonts.override {fonts = ["SauceCodePro"];})
     ];
 
     fontconfig.defaultFonts = {
       serif = [
-        "FantasqueSansM Nerd Font"
+        "SauceCodePro Nerd Font"
       ];
       sansSerif = [
-        "FantasqueSansM Nerd Font"
+        "SauceCodePro Nerd Font"
       ];
       monospace = [
-        "FantasqueSansM Nerd Font Mono"
+        "SauceCodePro Nerd Font"
       ];
     };
   };
