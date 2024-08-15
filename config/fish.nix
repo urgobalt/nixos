@@ -53,6 +53,10 @@
       eval (opam env)
       set fish_greeting # Disable greeting
 
+      if test -z $TMUX
+        tmux new -As main
+      end
+
       clear
     '';
   };
