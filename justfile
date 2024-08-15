@@ -11,10 +11,13 @@ alias i := install
 alias u := update
 update:
   nix flake update
-  sudo nixos-rebuild switch
 
 alias b := build
 build:
+  sudo nixos-rebuild switch
+
+alias f := fast
+fast:
   sudo nixos-rebuild switch --fast
 
 alias t := test
