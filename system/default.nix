@@ -39,7 +39,7 @@ in {
   environment.systemPackages = import ./packages.nix {inherit pkgs;};
   environment.variables = {
     EDITOR = "nvim";
-    SHELL = "fish";
+    SHELL = "${pkgs.fish}/bin/fish";
   };
 
   services.pcscd.enable = true;
