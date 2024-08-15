@@ -9,7 +9,6 @@
       lt = "ls -hlTL 5";
       rm = "trash put";
       update = "sudo nixos-rebuild switch";
-      clear = "clear && fastfetch";
       speedtest = "speedtest-rs";
       printpath = "printf %s\\n $PATH | column";
       systempath = "printf %s\\n $PATH | grep -v /mnt | column";
@@ -26,6 +25,13 @@
 
       function take
         mkdir -p $argv && cd $argv
+      end
+
+      function clear
+        clear
+        if test (tput cols) -ge 80
+          fastfetch
+        end
       end
 
       function custom_tab_completion
@@ -47,7 +53,7 @@
       eval (opam env)
       set fish_greeting # Disable greeting
 
-      fastfetch
+      clear
     '';
   };
 }
