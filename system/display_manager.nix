@@ -1,8 +1,4 @@
-{
-  pkgs,
-  user,
-  ...
-}: {
+{...}: {
   services = {
     xserver.enable = false;
     displayManager.sddm = {
