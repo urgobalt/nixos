@@ -50,6 +50,7 @@
     agenix,
     hardware,
     flake-utils,
+    disko,
     self,
     ...
   }: let
@@ -118,6 +119,17 @@
             ++ [
               ./hosts/pi.nix
               hardware.nixosModules.raspberry-pi-4
+            ];
+        };
+        # -----------------Lenovo Laptop------------------ #
+        lenovo_laptop_320 = nixpkgs.lib.nixosSystem {
+          specialArgs = {inherit pkgs fullName user;};
+          system = system;
+          modules =
+            defaultModules
+            ++ [
+              ./hosts/lenovo_laptop_320
+              disko.nixosModules.disko
             ];
         };
       };
