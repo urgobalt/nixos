@@ -1,19 +1,24 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  user,
+  ...
+}: {
   services = {
     displayManager = {
       enable = true;
+      defaultSession = "hyprland";
     };
     xserver = {
       enable = true;
-      displayManager.lightdm = {
-        enable = true;
-        greeter = {
+      displayManager = {
+        lightdm = {
           enable = true;
-          name = "lightdm-mini-greeter";
-          package = pkgs.lightdm-mini-greeter;
+          greeters.mini = {
+            enable = true;
+            user = user;
+          };
         };
       };
     };
   };
-  environment.systemPackages = with pkgs; [lightdm-mini-greeter];
 }
