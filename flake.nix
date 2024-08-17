@@ -122,13 +122,14 @@
             ];
         };
         # -----------------Lenovo Laptop------------------ #
-        lenovo_laptop_320 = nixpkgs.lib.nixosSystem {
+        lenovo-laptop-320 = nixpkgs.lib.nixosSystem {
           specialArgs = {inherit pkgs fullName user;};
           system = system;
           modules =
             defaultModules
+            ++ homeModules
             ++ [
-              ./hosts/lenovo_laptop_320
+              ./hosts/lenovo-laptop-320
               disko.nixosModules.disko
             ];
         };
