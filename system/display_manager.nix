@@ -4,10 +4,6 @@
   ...
 }: {
   services = {
-    displayManager = {
-      enable = true;
-      defaultSession = "hyprland";
-    };
     xserver = {
       enable = true;
       displayManager = {
