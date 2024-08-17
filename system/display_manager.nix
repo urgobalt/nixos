@@ -3,12 +3,15 @@
     displayManager = {
       enable = true;
     };
-    xserver.displayManager.lightdm = {
+    xserver = {
       enable = true;
-      greeter = {
+      displayManager.lightdm = {
         enable = true;
-        name = "lightdm-mini-greeter";
-        package = pkgs.lightdm-mini-greeter;
+        greeter = {
+          enable = true;
+          name = "lightdm-mini-greeter";
+          package = pkgs.lightdm-mini-greeter;
+        };
       };
     };
   };
