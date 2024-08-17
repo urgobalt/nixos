@@ -18,6 +18,7 @@
         binds =
           [
             "$mod, Enter, exec, rofi"
+            "$mod, T, exec, wezterm"
           ]
           ++ (
             # workspaces
