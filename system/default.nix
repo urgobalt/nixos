@@ -12,6 +12,8 @@ in {
     ../secrets
   ];
 
+  users.mutableUsers = false;
+
   # User
   users.users.${user} = {
     uid = 1000;
