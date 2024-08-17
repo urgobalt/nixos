@@ -21,12 +21,12 @@
 
   fonts = {
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["SauceCodePro"];})
+      (nerdfonts.override {fonts = ["SourceCodePro"];})
     ];
 
     fontconfig.defaultFonts = {
       serif = [
-        "SauceCodePro Nerd Font"
+        "SourceCodePro Nerd Font"
       ];
       sansSerif = [
         "SauceCodePro Nerd Font"
