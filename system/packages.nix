@@ -7,6 +7,7 @@ with pkgs; [
   gnumake
   xdg-utils
   fd
+  mlocate
 
   # System management packages
   vim
