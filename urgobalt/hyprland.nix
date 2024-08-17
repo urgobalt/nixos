@@ -39,6 +39,7 @@
               10)
           );
       };
+      systemd.variables = ["--all"];
     };
     programs.rofi = {
       enable = true;
