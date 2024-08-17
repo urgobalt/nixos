@@ -4,17 +4,10 @@
   ...
 }: {
   services = {
-    xserver = {
+    xserver.enable = false;
+    displayManager.sddm = {
       enable = true;
-      displayManager = {
-        lightdm = {
-          enable = true;
-          greeters.mini = {
-            enable = true;
-            user = user;
-          };
-        };
-      };
+      wayland.enable = true;
     };
   };
 }
