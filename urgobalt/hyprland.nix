@@ -4,7 +4,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    wezterm
+    kitty
   ];
 
   programs.hyprland.enable = true;
@@ -14,15 +14,19 @@
       enable = true;
       plugins = [];
       settings = {
+        input = {
+          kb_layout = "sv";
+          kb_variant = ",qwerty";
+        };
         "$mod" = "SUPER";
         binds =
           [
             # Hyprland
-            "ALT, Q, killactive,"
-            "ALT, V, togglefloating,"
+            "$mod, Q, killactive,"
+            "$mod, V, togglefloating,"
             # Applications
-            "ALT, Return, exec, rofi"
-            "ALT, T, exec, wezterm"
+            "$mod, Return, exec, rofi"
+            "$mod, T, exec, kitty"
           ]
           ++ (
             # workspaces
@@ -46,7 +50,7 @@
     programs.rofi = {
       enable = true;
       cycle = true;
-      terminal = "${pkgs.wezterm}/bin/wezterm";
+      terminal = "${pkgs.kitty}/bin/kitty";
     };
   };
 }
