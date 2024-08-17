@@ -17,10 +17,12 @@
         "$mod" = "SUPER";
         binds =
           [
-            "$mod, Q, killactive,"
+            # Hyprland
+            "ALT, Q, killactive,"
+            "ALT, V, togglefloating,"
             # Applications
-            "$mod, Return, exec, rofi"
-            "$mod, T, exec, wezterm"
+            "ALT, Return, exec, rofi"
+            "ALT, T, exec, wezterm"
           ]
           ++ (
             # workspaces
