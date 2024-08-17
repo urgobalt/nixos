@@ -17,7 +17,9 @@
         "$mod" = "SUPER";
         binds =
           [
-            "$mod, Enter, exec, rofi"
+            "$mod, Q, killactive,"
+            # Applications
+            "$mod, Return, exec, rofi"
             "$mod, T, exec, wezterm"
           ]
           ++ (
