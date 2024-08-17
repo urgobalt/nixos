@@ -7,6 +7,8 @@
     wezterm
   ];
 
+  programs.hyprland.enable = true;
+
   home-manager.users.${user} = {
     wayland.windowManager.hyprland = {
       enable = true;
