@@ -1,4 +1,4 @@
-{...}: {
+{
   services = {
     xserver.enable = false;
     displayManager.sddm = {

@@ -5,13 +5,16 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    ../system/virtualization.nix
-    ../network.nix
-    ../system/firewall.nix
   ];
 
   networking.hostName = "pi";
   networking.useDHCP = lib.mkDefault true;
+  networking.nftables.enable = true;
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [22 25565];
+    allowedUDPPorts = [25565];
+  };
 
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
