@@ -14,7 +14,6 @@
     git.enable = true;
     pass.enable = true;
     tmux.enable = true;
-    starship.enable = true;
 
     # system
     xdg.enable = true;
