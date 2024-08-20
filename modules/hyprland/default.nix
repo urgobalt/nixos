@@ -11,13 +11,16 @@ in {
   options.modules.hyprland = {enable = mkEnableOption "hyprland";};
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
-      swaybg
+      # swaybg
       wlsunset
       wl-clipboard
-      hyprland
     ];
 
+    wayland.windowManager.hyprland.enable = true;
+    services.hyprpaper.enable = true;
+
     xdg.configFile."hypr/hyprland.conf".source = ./hyprland.conf;
+    xdg.configFile."hypr/hyprpaper.conf".source = ./hyprpaper.conf;
     home.file."pictures/wallpaper.png".source = ./wallpaper.png;
   };
 }

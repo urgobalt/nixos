@@ -6,6 +6,4 @@
       wayland.enable = true;
     };
   };
-
-  programs.hyprland.enable = true;
 }
