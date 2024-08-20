@@ -91,7 +91,7 @@
 
   nix = {
     settings.auto-optimise-store = true;
-    settings.allowed-users = ["notus"];
+    settings.allowed-users = [user];
     settings.experimental-features = ["nix-command" "flakes"];
     settings.keep-outputs = true;
     gc = {
