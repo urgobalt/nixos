@@ -9,5 +9,9 @@
       psk = "@PSK_SPOKHUSET@";
       priority = 0;
     };
+    "Nygren" = {
+      psk = "@PSK_NYGREN@";
+      priority = 1;
+    };
   };
 }

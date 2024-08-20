@@ -14,6 +14,7 @@ in {
       download = "$HOME/downloads";
       music = "$HOME/music";
       pictures = "$HOME/pictures";
+      videos = "$HOME/videos";
       documents = "$HOME/other";
       desktop = "$HOME/other";
       publicShare = "$HOME/other";
