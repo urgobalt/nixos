@@ -22,6 +22,7 @@ in {
       inotify-tools
       fd
       mlocate
+      bluetuith
 
       gcc
       gnumake
