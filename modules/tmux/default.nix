@@ -9,7 +9,9 @@ with lib; let
 in {
   options.modules.tmux = {enable = mkEnableOption "tmux";};
   config = mkIf cfg.enable {
-    programs.tmux.enable = true;
+    home.packages = with pkgs; [
+      tmux
+    ];
 
     home.file.".tmux.conf".source = ./tmux.conf;
   };
