@@ -8,6 +8,7 @@
     fuzzel.enable = true;
     dunst.enable = false;
     chromium.enable = true;
+    discord.enable = true;
 
     # cli
     nvim.enable = true;

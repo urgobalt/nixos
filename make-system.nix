@@ -46,6 +46,7 @@ pkgs.lib.nixosSystem {
       # Overlays
       {
         nixpkgs = {
+          config.allowUnfree = true;
           overlays = [
             (final: prev: {
               nur = import inputs.nur {

@@ -9,6 +9,7 @@
     ./kitty
     ./wezterm
     ./chromium
+    ./discord
 
     # cli
     ./tmux
