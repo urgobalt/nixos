@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -12,9 +11,12 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usb_storage" "sd_mod"];
-  boot.kernelModules = ["iwlwifi"];
+  boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "sd_mod"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-intel"];
   boot.extraModulePackages = [];
+
+  # Use systemd-boot (gummiboot) as the bootloader
   boot.loader.systemd-boot.enable = true;
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
