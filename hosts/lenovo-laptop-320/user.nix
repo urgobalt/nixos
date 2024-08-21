@@ -3,10 +3,11 @@
   config.modules = {
     # gui
     hyprland.enable = true;
-    eww.enable = true;
+    eww.enable = false;
     kitty.enable = true;
     fuzzel.enable = true;
-    dunst.enable = true;
+    dunst.enable = false;
+    chromium.enable = true;
 
     # cli
     nvim.enable = true;

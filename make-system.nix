@@ -34,7 +34,7 @@ pkgs.lib.nixosSystem {
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = {
-            inherit fullName;
+            inherit fullName user;
             nvim-config = inputs.nvim-config;
             agenix = inputs.agenix;
             modules = ./modules;

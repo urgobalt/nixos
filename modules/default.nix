@@ -7,6 +7,8 @@
     ./eww
     ./dunst
     ./kitty
+    ./wezterm
+    ./chromium
 
     # cli
     ./tmux
