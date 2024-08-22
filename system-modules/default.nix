@@ -3,12 +3,9 @@
   imports = [
     # gui
     ./hyprland
+    ./fuzzel
     ./eww
     ./dunst
-    ./waybar
-
-    # Applets
-    ./fuzzel
     ./kitty
     ./wezterm
     ./chromium

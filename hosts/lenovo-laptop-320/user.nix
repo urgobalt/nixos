@@ -4,9 +4,12 @@
     # gui
     hyprland.enable = true;
     eww.enable = false;
+    waybar.enable = true;
+    dunst.enable = false;
+
+    # applets
     kitty.enable = true;
     fuzzel.enable = true;
-    dunst.enable = false;
     chromium.enable = true;
     discord.enable = true;
 

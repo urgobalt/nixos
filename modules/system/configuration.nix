@@ -150,6 +150,7 @@
     bluetooth = {
       enable = true;
       powerOnBoot = true;
+      hsphfpd.enable = true;
     };
     opengl = {
       enable = true;
