@@ -37,6 +37,7 @@
 
   users.users.root.openssh.authorizedKeys.keys = [
     ssh.wsl
+    ssh.lenovo-laptop-320
   ];
 
   # Locale settings
