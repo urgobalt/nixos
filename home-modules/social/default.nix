@@ -5,12 +5,13 @@
   ...
 }:
 with lib; let
-  cfg = config.modules.discord;
+  cfg = config.modules.social;
 in {
-  options.modules.discord = {enable = mkEnableOption "discord";};
+  options.modules.social = {enable = mkEnableOption "social";};
   config = mkIf cfg.enable {
     home.packages = with pkgs; [
       discord
+      whatsapp-for-linux
     ];
   };
 }

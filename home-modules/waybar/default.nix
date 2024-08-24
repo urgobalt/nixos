@@ -33,7 +33,6 @@ in {
             "clock"
           ];
           "hyprland/workspaces" = {
-            format = "{icon}";
             disable_scroll = true;
           };
           "hyprland/window" = {

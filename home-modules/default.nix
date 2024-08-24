@@ -3,13 +3,16 @@
   imports = [
     # gui
     ./hyprland
-    ./fuzzel
     ./eww
     ./dunst
+    ./waybar
+
+    # Applets
+    ./fuzzel
     ./kitty
     ./wezterm
     ./chromium
-    ./discord
+    ./social
 
     # cli
     ./tmux
@@ -23,6 +26,7 @@
     # system
     ./wsl
     ./xdg
+    ./gtk
     ./packages
   ];
 }

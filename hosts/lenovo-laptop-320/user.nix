@@ -11,7 +11,7 @@
     kitty.enable = true;
     fuzzel.enable = true;
     chromium.enable = true;
-    discord.enable = true;
+    social.enable = true;
 
     # cli
     nvim.enable = true;
@@ -22,6 +22,7 @@
 
     # system
     xdg.enable = true;
+    gtk.enable = true;
     packages.enable = true;
   };
 }

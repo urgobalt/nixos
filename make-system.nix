@@ -10,9 +10,6 @@
   specialArgs ? {},
   disko ? false,
   wsl ? false,
-  wifi ? false,
-  display-manager ? false,
-  virtualisation ? false,
 }:
 pkgs.lib.nixosSystem {
   system = system;
@@ -22,7 +19,10 @@ pkgs.lib.nixosSystem {
       # initial build
       {networking.hostName = hostname;}
       # System configuration that you don't really want to disable
-      ./modules/system/configuration.nix
+      ./modules/configuration.nix
+      # Import the modules that can be enabled
+      ./modules
+      (./. + "/hosts/${hostname}/system.nix")
       # Secret management within nixos, many things depend on them
       inputs.agenix.nixosModules.default
       ./secrets
@@ -37,7 +37,7 @@ pkgs.lib.nixosSystem {
             inherit fullName user;
             nvim-config = inputs.nvim-config;
             agenix = inputs.agenix;
-            modules = ./modules;
+            modules = ./home-modules;
           };
 
           users.${user} = import (./. + "/hosts/${hostname}/user.nix");
@@ -75,28 +75,10 @@ pkgs.lib.nixosSystem {
         };
       }
 
-      # If you want a display manager
-      (
-        if display-manager
-        then ./modules/system/display-manager.nix
-        else {}
-      )
       # WSL does not really have hardware
       (
         if (wsl == false)
         then (./. + "/hosts/${hostname}/hardware-configuration.nix")
-        else {}
-      )
-      # If you want to enable wireless networking (requires secrets)
-      (
-        if wifi
-        then ./network.nix
-        else {}
-      )
-      # If you want virtualisation
-      (
-        if virtualisation
-        then ./modules/system/virtualisation.nix
         else {}
       )
     ]

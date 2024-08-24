@@ -54,15 +54,11 @@
       # -----------------Lenovo Laptop------------------ #
       lenovo-laptop-320 = mkSystem "lenovo-laptop-320" {
         system = "x86_64-linux";
-        display-manager = true;
         disko = true;
-        wifi = true;
       };
       # ---------------------RPI4---------------------- #
       pi = mkSystem "pi" {
         system = "aarch64-linux";
-        virtualisation = true;
-        wifi = true;
         extraModules = [
           hardware.nixosModules.raspberry-pi-4
         ];
