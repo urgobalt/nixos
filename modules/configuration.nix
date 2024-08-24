@@ -31,6 +31,7 @@
     shell = pkgs.fish;
     openssh.authorizedKeys.keys = [
       ssh.wsl
+      ssh.lenovo-laptop-320
     ];
   };
 
