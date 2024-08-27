@@ -2,11 +2,16 @@
   lib,
   config,
   pkgs,
-  user,
+  hyprland,
+  hyprspace,
   ...
 }:
 with lib; let
   cfg = config.modules.hyprland;
+  colors = {
+    yellow = "0xffffdeaa";
+    gray02 = "0x4c4c4c4bff";
+  };
 in {
   options.modules.hyprland = {enable = mkEnableOption "hyprland";};
   config = mkIf cfg.enable {
@@ -21,10 +26,14 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       systemd.variables = ["--all"];
+      package = hyprland;
+      plugins = [
+        hyprspace
+      ];
       settings = {
         monitor = ["eDP-1,1920x1080@60,0x0,1"];
         # "swaybg -i /home/urgobalt/pictures/wallpaper.png"
-        exec-once = ["wlsunset -l -23 -L -46" "waybar"];
+        exec-once = ["wlsunset -l -23 -L -46" "waybar 2>&1 > ~/waybar.log"];
         input = {
           follow_mouse = 0;
           kb_layout = "se";
@@ -33,35 +42,48 @@ in {
         };
         general = {
           layout = "master";
-          gaps_in = 20;
-          gaps_out = 50;
-          border_size = 4;
-          "col.active_border" = "0xffffdeaa";
-          "col.inactive_border" = "0x4c4c4c4bff";
+          gaps_in = 10;
+          gaps_out = 15;
+          border_size = 1;
+          "col.active_border" = colors.yellow;
+          "col.inactive_border" = colors.gray02;
+        };
+        master = {
+          mfact = 0.5;
+          inherit_fullscreen = 1;
+          no_gaps_when_only = 1;
         };
         misc = {
           disable_splash_rendering = true;
           disable_hyprland_logo = true;
         };
         decoration = {
-          rounding = 8;
+          rounding = 0;
           drop_shadow = 0;
           shadow_range = 60;
           "col.shadow" = "0x66000000";
-          inactive_opacity = 0.8;
+          inactive_opacity = 1.0;
+        };
+        plugin = {
+          overview = {
+            workspaceActiveBorder = colors.yellow;
+          };
         };
         animations = {
           enabled = 1;
           animation = [
-            "windows,1,4,default,slide"
-            "workspaces,0"
+            "windows,1,3,default,slide"
+            "workspaces,1,2,default,slide"
+            "windowsIn,1,3,default,popin"
           ];
         };
 
         windowrule = [
-          "fullscreen,kitty"
           "workspace 0,kitty"
           "workspace 1,chromium"
+        ];
+        workspace = [
+          "1,on-created-empty:exec, kitty"
         ];
         "$mod" = "SUPER";
         "$smod" = "SUPER SHIFT";
@@ -71,14 +93,18 @@ in {
           "$mod,Q,killactive,"
           "$mod,V,togglefloating,"
           "$mod,F,fullscreen,0"
+          "$mod,Tab,overview:toggle"
           # Applications
           "$mod,R,exec,fuzzel"
           "$mod,T,exec,kitty"
+          "$mod,B,exec,chromium"
           # Movement
           "$mod,h,movefocus,l"
           "$mod,l,movefocus,r"
           "$mod,k,movefocus,u"
           "$mod,j,movefocus,d"
+          "$mod,n,layoutmsg,rollnext"
+          "$mod,p,layoutmsg,rollprev"
           # Move window
           "$smod,h,movewindow,l"
           "$smod,l,movewindow,r"

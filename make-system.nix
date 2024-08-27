@@ -35,12 +35,21 @@ pkgs.lib.nixosSystem {
           useUserPackages = true;
           extraSpecialArgs = {
             inherit fullName user;
-            nvim-config = inputs.nvim-config;
-            agenix = inputs.agenix;
+            inherit (inputs) nvim-config agenix;
+            hyprspace = inputs.hyprspace.packages.${system}.default;
+            hyprland = inputs.hyprland.packages.${system}.default;
             modules = ./home-modules;
           };
 
-          users.${user} = import (./. + "/hosts/${hostname}/user.nix");
+          users.${user}.imports = [
+            # User defined modules
+            ./home-modules
+            # Secrets
+            inputs.agenix.homeManagerModules.default
+            ./secrets/home.nix
+            # Host configuration
+            (./. + "/hosts/${hostname}/user.nix")
+          ];
         };
       }
       # Overlays
@@ -109,7 +118,8 @@ pkgs.lib.nixosSystem {
   specialArgs =
     {
       inherit user fullName;
-      agenix = inputs.agenix;
+      inherit (inputs) agenix;
+      hyprland = inputs.hyprland.packages.${system}.default;
       ssh = import ./ssh.nix;
     }
     // specialArgs;

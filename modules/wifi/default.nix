@@ -27,6 +27,10 @@ in {
         psk = "@PSK_CINDERBLOCK@";
         priority = 3;
       };
+      "urgobalt" = {
+        psk = "@PSK_URGOBALT@";
+        priority = 99;
+      };
     };
   };
 }

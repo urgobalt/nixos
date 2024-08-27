@@ -5,4 +5,9 @@ in
   with ssh; {
     "user-password.age".publicKeys = default;
     "wifi-env.age".publicKeys = default;
+
+    # Email
+    "personal-email.age".publicKeys = ssh.users;
+    "professional-email.age".publicKeys = ssh.users;
+    # "nygren-email.age".publicKeys = ssh.users;
   }

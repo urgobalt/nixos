@@ -19,6 +19,7 @@
     git.enable = true;
     pass.enable = true;
     tmux.enable = true;
+    neomutt.enable = true;
 
     # system
     xdg.enable = true;

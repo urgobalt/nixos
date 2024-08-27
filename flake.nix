@@ -35,6 +35,18 @@
       url = "github:ryantm/agenix";
       inputs.nixpkgs.follows = "pkgs";
     };
+
+    # Hyprland
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      submodules = true;
+      inputs.nixpkgs.follows = "pkgs";
+    };
+    hyprspace = {
+      url = "github:KZDKM/Hyprspace";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
   outputs = {
     pkgs,
