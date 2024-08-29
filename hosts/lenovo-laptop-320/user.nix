@@ -3,8 +3,8 @@
   config.modules = {
     # gui
     hyprland.enable = true;
-    eww.enable = false;
-    waybar.enable = true;
+    eww.enable = true;
+    waybar.enable = false;
     dunst.enable = false;
 
     # applets

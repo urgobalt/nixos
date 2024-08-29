@@ -29,16 +29,10 @@
     description = fullName;
     extraGroups = ["wheel" "networkmanager"];
     shell = pkgs.fish;
-    openssh.authorizedKeys.keys = [
-      ssh.wsl
-      ssh.lenovo-laptop-320
-    ];
+    openssh.authorizedKeys.keys = ssh.users;
   };
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    ssh.wsl
-    ssh.lenovo-laptop-320
-  ];
+  users.users.root.openssh.authorizedKeys.keys = ssh.users;
 
   # Locale settings
   i18n = {

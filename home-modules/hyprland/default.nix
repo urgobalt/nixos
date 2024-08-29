@@ -33,7 +33,8 @@ in {
       settings = {
         monitor = ["eDP-1,1920x1080@60,0x0,1"];
         # "swaybg -i /home/urgobalt/pictures/wallpaper.png"
-        exec-once = ["wlsunset -l -23 -L -46" "waybar 2>&1 > ~/waybar.log"];
+        # "eww daemon" "eww open bar"
+        exec-once = ["wlsunset -l -23 -L -46"];
         input = {
           follow_mouse = 0;
           kb_layout = "se";
@@ -58,7 +59,7 @@ in {
           disable_hyprland_logo = true;
         };
         decoration = {
-          rounding = 0;
+          rounding = 5;
           drop_shadow = 0;
           shadow_range = 60;
           "col.shadow" = "0x66000000";
@@ -67,6 +68,9 @@ in {
         plugin = {
           overview = {
             workspaceActiveBorder = colors.yellow;
+            workspaceBorder = colors.gray02;
+            overrideGaps = false;
+            affectStrut = false;
           };
         };
         animations = {

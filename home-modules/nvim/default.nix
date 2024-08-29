@@ -34,6 +34,10 @@ in {
       rebar3
       elixir
 
+      # Python
+      uv
+      python313FreeThreading
+
       # Lsp
       lua-language-server
       nil
