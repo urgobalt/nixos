@@ -1,61 +1,29 @@
 {
   description = "The entrypoint to the system configuration";
   inputs = {
-    # System
-    pkgs.url = "github:nixos/nixpkgs?ref=nixos-24.05";
-    pkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    systems.url = "github:nix-systems/default";
-    nur.url = "github:nix-community/nur";
-
-    # Hardware
-    wsl = {
-      url = "github:nix-community/nixos-wsl";
-      inputs.nixpkgs.follows = "pkgs";
-    };
+    sensible-nix.url = "github:Aabrupt/sensible-nix";
     hardware.url = "github:NixOS/nixos-hardware";
 
-    # Partitions as code
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "pkgs";
-    };
-
-    # Home
-    home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "pkgs";
-    };
     nvim-config = {
-      url = "github:aabrupt/nvim";
+      url = "github:Aabrupt/nvim";
       flake = false;
-    };
-
-    # Secrets
-    agenix = {
-      url = "github:ryantm/agenix";
-      inputs.nixpkgs.follows = "pkgs";
-    };
-
-    # Hyprland
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-      inputs.nixpkgs.follows = "pkgs";
-    };
-    hyprspace = {
-      url = "github:KZDKM/Hyprspace";
-      inputs.hyprland.follows = "hyprland";
     };
   };
   outputs = {
-    pkgs,
+    self,
+    sensible-nix,
     hardware,
+    nvim-config,
     ...
   } @ inputs: let
-    fullName = "Ludvig Källqvist Nygren";
+    full-name = "Ludvig Källqvist Nygren";
     user = "urgobalt";
-    mkSystem = import ./make-system.nix {inherit pkgs inputs user fullName;};
+    email = "ludvigkallqvistnygren@gmail.com";
+    mkSystem = sensible-nix.nixosModules.mkSystem {
+      inherit full-name user email nvim-config;
+      wallpaper = ./assets/wallpaper.png;
+      outPath = self.outPath;
+    };
   in {
     nixosConfigurations = {
       # ----------------------WSL---------------------- #

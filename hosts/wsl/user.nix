@@ -1,5 +1,4 @@
-{modules, ...}: {
-  imports = [modules];
+{...}: {
   config.modules = {
     wsl.enable = true;
 

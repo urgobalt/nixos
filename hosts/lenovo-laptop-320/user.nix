@@ -1,5 +1,4 @@
-{modules, ...}: {
-  imports = [modules];
+{...}: {
   config.modules = {
     # gui
     hyprland.enable = true;
@@ -19,7 +18,6 @@
     git.enable = true;
     pass.enable = true;
     tmux.enable = true;
-    neomutt.enable = true;
 
     # system
     xdg.enable = true;
