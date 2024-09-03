@@ -235,11 +235,11 @@
     "nvim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1723672029,
-        "narHash": "sha256-xxQuhiyNQ5StkjKAyfCjpqSe5ezmfM6GcUYKubqYOuU=",
+        "lastModified": 1725362426,
+        "narHash": "sha256-EDtA01gw6g5Kmrfl7o9NmL+7qN+GAgyfREPYW8JCT24=",
         "owner": "Aabrupt",
         "repo": "nvim",
-        "rev": "713d6a19e4b49db5c855830a12594c63568d8ee1",
+        "rev": "b5c2a0e66feae3e4a10468763647138edaf5681d",
         "type": "github"
       },
       "original": {
@@ -268,11 +268,11 @@
         "wsl": "wsl"
       },
       "locked": {
-        "lastModified": 1725352440,
-        "narHash": "sha256-YVuT+K+w9ch5jmnW225cPYy+Q917Rx56r8s5HFNFTD4=",
+        "lastModified": 1725356560,
+        "narHash": "sha256-EHSY/ion9CnrOT9vWtQMH+UGvlKtjh9wIeJiC3bdEuc=",
         "owner": "Aabrupt",
         "repo": "sensible-nix",
-        "rev": "5393658147e7365d38c0795ab694e7814aebde09",
+        "rev": "9aa9fc8be643724a23bcc4cb5fcbac02881212ab",
         "type": "github"
       },
       "original": {
