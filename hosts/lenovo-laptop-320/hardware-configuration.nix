@@ -19,6 +19,13 @@
   # Use systemd-boot (gummiboot) as the bootloader
   boot.loader.systemd-boot.enable = true;
 
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024; # 16 GB
+    }
+  ];
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction

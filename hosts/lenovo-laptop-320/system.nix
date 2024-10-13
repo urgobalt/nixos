@@ -1,5 +1,9 @@
 let
   networks = {
+    "Gobalt_link_5G" = {
+      psk = "@PSK_GOBALT_LINK@";
+      priority = 3;
+    };
     "Spökhuset" = {
       psk = "@PSK_SPOKHUSET@";
       priority = 4;
@@ -8,17 +12,17 @@ let
       psk = "@PSK_NYGREN@";
       priority = 5;
     };
-    "cinderblock" = {
+    "Cinderblock" = {
       psk = "@PSK_CINDERBLOCK@";
       priority = 10;
     };
     "eduroam" = {
       auth = ''
-        key_mgmt=wpa-eap
-        eap=peap
+        key_mgmt=WPA-EAP
+        eap=PEAP
         identity="@I_EDUROAM@"
         password="@PSK_EDUROAM@"
-        phase2="auth=mschapv2"
+        phase2="auth=MSCHAPV2"
       '';
       priority = 20;
     };
@@ -34,8 +38,11 @@ in {
       enable = true;
       networks = networks;
     };
-    hyprland.enable = true;
-    display-manager.enable = true;
+    # hyprland.enable = true;
+    display-manager = {
+      enable = true;
+      greeter = "greetd";
+    };
     steam.enable = true;
   };
 }

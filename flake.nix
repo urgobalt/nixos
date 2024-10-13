@@ -1,7 +1,7 @@
 {
   description = "The entrypoint to the system configuration";
   inputs = {
-    sensible-nix.url = "github:Aabrupt/sensible-nix";
+    sensible-nix.url = "github:aabrupt/sensible-nix";
     hardware.url = "github:NixOS/nixos-hardware";
 
     nvim-config = {
@@ -21,7 +21,7 @@
     email = "ludvigkallqvistnygren@gmail.com";
     mkSystem = sensible-nix.nixosModules.mkSystem {
       inherit full-name user email nvim-config;
-      wallpaper = ./assets/wallpaper.png;
+      wallpaper = ./assets/image-sierra.jpg;
       outPath = self.outPath;
     };
   in {

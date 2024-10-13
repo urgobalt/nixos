@@ -1,15 +1,20 @@
-{...}: {
+{pkgs, ...}: {
   config.modules = {
     # gui
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      monitors = [",preferred,auto,1,mirror,"];
+      browser = pkgs.zen-browser;
+    };
     eww.enable = true;
     waybar.enable = false;
-    dunst.enable = false;
+    dunst.enable = true;
 
     # applets
-    kitty.enable = true;
     fuzzel.enable = true;
+    rofi.enable = true;
     chromium.enable = true;
+    zen.enable = true;
     social.enable = true;
 
     # cli
@@ -20,7 +25,10 @@
     tmux.enable = true;
 
     # system
-    xdg.enable = true;
+    xdg = {
+      enable = true;
+      defaultBrowser = "zen.desktop";
+    };
     gtk.enable = true;
     packages.enable = true;
   };
