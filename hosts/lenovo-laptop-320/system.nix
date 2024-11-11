@@ -41,7 +41,7 @@ in {
     # hyprland.enable = true;
     display-manager = {
       enable = true;
-      greeter = "greetd";
+      # greeter = "greetd";
     };
     steam.enable = true;
   };

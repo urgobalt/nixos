@@ -1,6 +1,6 @@
 {
   config.modules = {
     declarative-password.enable = true;
-    virtualisation.enable = true;
+    podman.enable = true;
   };
 }
