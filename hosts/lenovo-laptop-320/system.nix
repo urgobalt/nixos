@@ -1,6 +1,6 @@
 let
   networks = {
-    "Gobalt_link_5G" = {
+    "Gobalt_link" = {
       psk = "@PSK_GOBALT_LINK@";
       priority = 3;
     };
