@@ -15,18 +15,6 @@
     allowedTCPPorts = [22 80 443];
     allowedUDPPorts = [];
   };
-  networking.nat.forwardPorts = [
-    {
-      proto = "tcp";
-      destination = "127.0.0.1:1080";
-      sourcePort = 80;
-    }
-    {
-      proto = "tcp";
-      destination = "127.0.0.1:1443";
-      sourcePort = 443;
-    }
-  ];
 
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
@@ -40,6 +28,10 @@
   #   dtparam=pwr_led_trigger=none
   #   dtparam=pwr_led_activelow=off
   # '';
+
+  boot.kernel.sysctl = {
+    "net.ipv4.ip_unprivileged_port_start" = 80;
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";
