@@ -9,6 +9,7 @@
     git.enable = true;
     direnv.enable = true;
     tmux.enable = true;
+    zoxide.enable = true;
 
     packages.enable = true;
   };
