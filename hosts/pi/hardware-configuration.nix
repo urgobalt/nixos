@@ -19,7 +19,7 @@
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = [
+    extraFlags = toString [
       "--no-deploy traefik"
     ];
   };
