@@ -31,6 +31,7 @@
   boot.initrd.kernelModules = [];
   boot.kernelModules = [];
   boot.extraModulePackages = [];
+  boot.kernelParams = ["cgroup_enable=memory" "cgroup_enable=cpuset" "cgroup_memory=1"];
   # boot.loader.raspberryPi.firmwareConfig = ''
   #   dtparam=act_led_trigger=none
   #   dtparam=pwr_led_trigger=none
