@@ -20,7 +20,7 @@
     enable = true;
     role = "server";
     extraFlags = toString [
-      "--no-deploy traefik"
+      "--disable=traefik"
     ];
   };
 
