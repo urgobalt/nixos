@@ -16,6 +16,14 @@
     allowedUDPPorts = [];
   };
 
+  services.k3s = {
+    enable = true;
+    role = "server";
+    extraFlags = [
+      "--no-deploy traefik"
+    ];
+  };
+
   boot.loader.grub.enable = false;
   boot.loader.generic-extlinux-compatible.enable = true;
 
@@ -28,10 +36,6 @@
   #   dtparam=pwr_led_trigger=none
   #   dtparam=pwr_led_activelow=off
   # '';
-
-  boot.kernel.sysctl = {
-    "net.ipv4.ip_unprivileged_port_start" = 80;
-  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/44444444-4444-4444-8888-888888888888";

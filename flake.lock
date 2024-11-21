@@ -107,11 +107,11 @@
     },
     "hardware": {
       "locked": {
-        "lastModified": 1729455275,
-        "narHash": "sha256-THqzn/7um3oMHUEGXyq+1CJQE7EogwR3HjLMNOlhFBE=",
+        "lastModified": 1731797098,
+        "narHash": "sha256-UhWmEZhwJZmVZ1jfHZFzCg+ZLO9Tb/v3Y6LC0UNyeTo=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "9fcf30fccf8435f6390efec4a4d38e69c2268a36",
+        "rev": "672ac2ac86f7dff2f6f3406405bddecf960e0db6",
         "type": "github"
       },
       "original": {
@@ -235,11 +235,11 @@
     "nvim-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1729499143,
-        "narHash": "sha256-Gqjn5RkifAa48HOSJcthjag9NrLdHOC0aCsOZCZO42E=",
+        "lastModified": 1732104985,
+        "narHash": "sha256-eENwWhnNPhtoSE3eJ7QEAeuH0W5iDqnBXtrf9zc0PGY=",
         "owner": "Aabrupt",
         "repo": "nvim",
-        "rev": "00f1aa7c3ba8f9f0b93b052c2139f481ddc53e68",
+        "rev": "43306917344a105ca98829dc98ea2305e7510242",
         "type": "github"
       },
       "original": {
@@ -268,11 +268,11 @@
         "wsl": "wsl"
       },
       "locked": {
-        "lastModified": 1729355948,
-        "narHash": "sha256-w5fTGWn6+c8fHVG5LisS7JO4xvAp9cpkVJdrpn5sv1w=",
+        "lastModified": 1731577412,
+        "narHash": "sha256-oyzjKH3TYb5jRlYTxW//KT65Z894mzLWeIss0CY76+I=",
         "owner": "aabrupt",
         "repo": "sensible-nix",
-        "rev": "f4457ae579978b25be0237f41f24aaaf9666b902",
+        "rev": "290c95cf38fced3331fed7fbc106f4c1c202b22d",
         "type": "github"
       },
       "original": {
