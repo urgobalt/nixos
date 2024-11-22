@@ -22,6 +22,7 @@
     extraFlags = toString [
       "--disable=traefik"
       "--disable=servicelb"
+      "--kube-proxy-arg=ipvs-strict-arp=true"
     ];
   };
 
