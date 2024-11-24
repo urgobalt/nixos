@@ -18,7 +18,7 @@
   };
 
   services.k3s = {
-    package = pkgs.k3s_1_31;
+    package = pkgs.k3s_1_30;
     enable = true;
     role = "server";
     clusterInit = true;
