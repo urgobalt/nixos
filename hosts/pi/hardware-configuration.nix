@@ -1,4 +1,5 @@
 {
+  pkgs,
   lib,
   modulesPath,
   ...
@@ -17,6 +18,7 @@
   };
 
   services.k3s = {
+    package = pkgs.k3s_1_31;
     enable = true;
     role = "server";
     clusterInit = true;
