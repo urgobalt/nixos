@@ -21,9 +21,10 @@
     package = pkgs.k3s_1_30;
     enable = true;
     role = "server";
-    clusterInit = true;
+    clusterInit = false;
     extraFlags = toString [
       "--disable=traefik"
+      "--disable=servicelb"
     ];
   };
 
