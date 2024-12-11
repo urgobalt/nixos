@@ -36,6 +36,10 @@
         system = "x86_64-linux";
         disko = true;
       };
+      stationary-home-computer = mkSystem "stationary-home-computer" {
+        system = "x86_64-linux";
+        disko = true;
+      };
       # ---------------------RPI4---------------------- #
       pi = mkSystem "pi" {
         system = "aarch64-linux";
