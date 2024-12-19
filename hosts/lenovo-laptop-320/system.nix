@@ -1,17 +1,23 @@
 let
   networks = import ../networks.nix;
 in {
-  config.modules = {
-    declarative-password.enable = true;
-    wifi = {
+  config = {
+    programs.coolercontrol = {
       enable = true;
-      networks = networks;
+      nvidiaSupport = true;
     };
-    # hyprland.enable = true;
-    display-manager = {
-      enable = true;
-      greeter = "greetd";
+    modules = {
+      declarative-password.enable = true;
+      wifi = {
+        enable = true;
+        networks = networks;
+      };
+      # hyprland.enable = true;
+      display-manager = {
+        enable = true;
+        greeter = "greetd";
+      };
+      steam.enable = true;
     };
-    steam.enable = true;
   };
 }
