@@ -40,6 +40,10 @@
         system = "x86_64-linux";
         disko = true;
       };
+      asus-tuf-gaming-laptop = mkSystem "asus-tuf-gaming-laptop" {
+        system = "x86_64-linux";
+        disko = true;
+      };
       # ---------------------RPI4---------------------- #
       pi = mkSystem "pi" {
         system = "aarch64-linux";
