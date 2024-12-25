@@ -2,7 +2,7 @@ let
   networks = import ../networks.nix;
 in {
   config.modules = {
-    declarative-password.enable = false;
+    declarative-password.enable = true;
     wifi = {
       enable = true;
       networks = networks;
