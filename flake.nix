@@ -21,7 +21,7 @@
     email = "ludvigkallqvistnygren@gmail.com";
     mkSystem = sensible-nix.nixosModules.mkSystem {
       inherit full-name user email nvim-config;
-      wallpaper = ./assets/image-sierra.jpg;
+      wallpaper = ./assets/peyoto_lake.jpeg;
       outPath = self.outPath;
     };
   in {
