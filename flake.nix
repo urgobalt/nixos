@@ -43,6 +43,14 @@
       asus-tuf-gaming-laptop = mkSystem "asus-tuf-gaming-laptop" {
         system = "x86_64-linux";
         disko = true;
+        extraModules = [
+          ({pkgs, ...}: {
+            environment.systemPackages = with pkgs; [
+              spotify
+              bitwarden-cli
+            ];
+          })
+        ];
       };
       # ---------------------RPI4---------------------- #
       pi = mkSystem "pi" {

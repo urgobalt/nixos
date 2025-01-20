@@ -150,11 +150,19 @@
         ]
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736373539,
         "narHash": "sha256-dinzAqCjenWDxuy+MqUQq0I4zUSfaCvN9rzuCmgMZJY=",
         "owner": "nix-community",
         "repo": "home-manager",
         "rev": "bd65bc3cde04c16755955630b344bc9e35272c56",
+=======
+        "lastModified": 1735344290,
+        "narHash": "sha256-oJDtWPH1oJT34RJK1FSWjwX4qcGOBRkcNQPD0EbSfNM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "613691f285dad87694c2ba1c9e6298d04736292d",
+>>>>>>> 4b3fbac (wip: fixing the eduroam network and more)
         "type": "github"
       },
       "original": {
@@ -187,11 +195,19 @@
     },
     "nixpkgs": {
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736549401,
         "narHash": "sha256-ibkQrMHxF/7TqAYcQE+tOnIsSEzXmMegzyBWza6uHKM=",
         "owner": "nixos",
         "repo": "nixpkgs",
         "rev": "1dab772dd4a68a7bba5d9460685547ff8e17d899",
+=======
+        "lastModified": 1735669367,
+        "narHash": "sha256-tfYRbFhMOnYaM4ippqqid3BaLOXoFNdImrfBfCp4zn0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "edf04b75c13c2ac0e54df5ec5c543e300f76f1c9",
+>>>>>>> 4b3fbac (wip: fixing the eduroam network and more)
         "type": "github"
       },
       "original": {
@@ -235,11 +251,19 @@
     "nvim-config": {
       "flake": false,
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1736696299,
         "narHash": "sha256-Zu4H9yy4eQV6LxyF6/KTorkSxduadKofB/u+Z/bfQ1k=",
         "owner": "Aabrupt",
         "repo": "nvim",
         "rev": "99d334a3f2eac8f732e465800d88b1f5900036ca",
+=======
+        "lastModified": 1735845239,
+        "narHash": "sha256-h/k1LiQk3tB+Eqh0NQvbbUagj5Rkr1mW+w9LE4xcMGg=",
+        "owner": "Aabrupt",
+        "repo": "nvim",
+        "rev": "fe843cd5b603ffacc0e514d975fe258cee3c7540",
+>>>>>>> 4b3fbac (wip: fixing the eduroam network and more)
         "type": "github"
       },
       "original": {
@@ -268,11 +292,19 @@
         "wsl": "wsl"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1735853116,
         "narHash": "sha256-F8QQphcoP8NvT4YcxCnmz9xhobrpK6eQ11W91RD27B8=",
         "owner": "aabrupt",
         "repo": "sensible-nix",
         "rev": "6d7424bbe5dda70497aefd567e6d5df939420585",
+=======
+        "lastModified": 1735136024,
+        "narHash": "sha256-EBt18PYfvwnOXCJIQDEit5MGFK5yRH1ehw6rlRYV1SI=",
+        "owner": "aabrupt",
+        "repo": "sensible-nix",
+        "rev": "fd2e0dc7137fac87c24a52036e6c72dcb92c55d8",
+>>>>>>> 4b3fbac (wip: fixing the eduroam network and more)
         "type": "github"
       },
       "original": {

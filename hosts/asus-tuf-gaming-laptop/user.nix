@@ -5,6 +5,7 @@
       enable = true;
       monitors = [",preferred,auto,1,mirror,"];
       browser = pkgs.zen-browser;
+      # terminal = pkgs.ghostty;
     };
     eww.enable = true;
     waybar.enable = false;
