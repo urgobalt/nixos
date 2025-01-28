@@ -16,6 +16,7 @@
     allowedTCPPorts = [22 80 443];
     allowedUDPPorts = [];
   };
+  networking.nameservers = ["1.1.1.1" "1.0.0.1"];
 
   services.k3s = {
     package = pkgs.k3s_1_30;
