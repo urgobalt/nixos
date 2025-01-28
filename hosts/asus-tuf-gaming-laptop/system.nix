@@ -1,11 +1,11 @@
-{config, ...}: let
+let
   networks = import ../networks.nix;
 in {
   config.modules = {
     declarative-password.enable = true;
     wifi = {
       enable = true;
-      networks = networks {inherit config;};
+      networks = networks;
     };
     # hyprland.enable = true;
     display-manager = {

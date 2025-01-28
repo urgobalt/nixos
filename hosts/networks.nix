@@ -1,4 +1,4 @@
-{config}: {
+{
   "Gobalt_link" = {
     pskRaw = "ext:PSK_GOBALT_LINK";
     priority = 3;
@@ -19,11 +19,8 @@
     auth = ''
       key_mgmt=WPA-EAP
       eap=PEAP
-      pairwise=CCMP
-      group=CCMP TKIP
-      ca_cert="${config.age.secrets.eduroam-pem.path}"
-      identity="lukq@eduroam.bth.se"
-      password=ext:PSK_EDUROAM
+      identity="ext:I_EDUROAM"
+      password="ext:PSK_EDUROAM"
       phase2="auth=MSCHAPV2"
     '';
     priority = 20;
