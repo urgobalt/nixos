@@ -1,4 +1,8 @@
-{ ...}: {
-  config.modules = {
+{pkgs, ...}: {
+  modules = {
   };
+
+  home.packages = with pkgs; [
+    lazydocker
+  ];
 }
