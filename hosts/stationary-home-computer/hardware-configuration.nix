@@ -6,10 +6,16 @@
   lib,
   pkgs,
   modulesPath,
+  user,
   ...
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
+  environment.systemPackages = with pkgs; [
+    lm_sensors
+    unstable.openlinkhub
   ];
 
   boot.initrd.availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
@@ -22,6 +28,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   swapDevices = [];
+
+  services.logmein-hamachi.enable = true;
 
   hardware.nvidia = {
     modesetting.enable = true;
@@ -36,6 +44,14 @@
   };
 
   services.xserver.videoDrivers = ["nvidia"];
+
+  services.hardware.openrgb = {
+    enable = true;
+    motherboard = "amd";
+    package = pkgs.unstable.openrgb;
+  };
+
+  # systemd.tmpfiles.rules = ["d /run/openlinkhub 0750 openlinkhub openlinkhub -"];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
