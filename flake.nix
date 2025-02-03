@@ -2,7 +2,13 @@
   description = "The entrypoint to the system configuration";
   inputs = {
     sensible-nix.url = "github:aabrupt/sensible-nix";
+    sensible-nix.inputs.nixpkgs.follows = "nixpkgs";
+    sensible-nix.inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+
     hardware.url = "github:NixOS/nixos-hardware";
+
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
     nvim-config = {
       url = "github:Aabrupt/nvim";
